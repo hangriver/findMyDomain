@@ -1,0 +1,1241 @@
+1. Introduction
+The management of a production system (goods and services) demands reliable tools to help the routine of making decisions with the
+purpose of satisfying customers, minimizing costs and making a profit
+contribution while maintaining competitiveness (Salam & Khan, 2016).
+Discrete Simulation-Based Optimization (DSBO) is a set of tools and
+methods commonly used to help researchers and practitioners, regarding analysis and decision making, for investment and resource allocation in new or already existing systems. DSBO evaluates a specific
+solution space in order to find the best setting that will help to improve
+key performance indicators (e.g. service level, delivery lead times,
+average lateness) in favor to product quality (Gansterer, Almeder, &
+Hartl, 2014; Merkuryeva & Bolshakov, 2014; Merkuryeva, Merkuryev,
+& Vanmaele, 2010).
+The use of DSBO for stochastic NP-hard problems demands sophisticated methods and for it, knowledge in specific areas of operations
+research such as computational modeling and heuristics/metaheuristics
+optimization algorithms (Laroque, Klaas, Fischer, & Kuntze, 2012).
+Many articles published in this area refers to the solution of the specific
+problem by one or more methods. Ahmad, Subramaniam, Othman, and
+Zulkarnain (2011) studied the real-time scheduling problem using DES.
+Dahal, Galloway, Burt, McDonald, and Hopkins (2005) applied a genetic algorithm to the bulk material port handling. Gourgand,
+Grangeon, and Norre (2003) tested scheduling problems in m machine
+stochastic flow shop with unlimited buffer. Li, Jia, and Wang (2012)
+used DES with the multiple-comparison procedure to define the best
+average project duration. Moengin, Septiani, and Herviana (2014) optimized the number of hospital beds using DES. With the aforementioned studies, it is possible to infer the full range of possible problems
+related to the production of goods and services and its variances inside
+the same problem and why the need for such different methodologies.
+Considering DSBO characteristics, related Literature Reviews (LR)
+from 1991 to 2016 only refers to methods applied on specific cases
+related to a defined situation and a restrict number of methods, i.e.,
+none of them refers to the industrial sector (manufacturing/service) in a
+broad way, to help in the early stages of the optimization process. The
+purpose of this work is to use the systematic literature review (SLR)
+methodology, answering the research questions, to present the findings
+and generate a set of discussion that can help practitioners and researchers to overview the most used DSBO techniques and contribute
+with their projects on industrial engineering. As a result, can help with
+the planning for the knowledge that should be managed, created and
+considered in such type of project
+To accomplish the purpose of the research, four steps were developed related to (1) specify and apply a research methodology combining CIMO and SLR to study DSBO, that can be a reference to future
+works; (2) create an up-to-date reference set that relates industrial
+engineering problems and the solutions tried to resolve using DSBO; (3)
+answer the CIMO-logic research questions; and (4) introduce future
+work directions pointed out by the articles.
+The defined CIMO-logic questions are (A) Which are the main
+problems studied, related to the area of Industrial Engineering? (B)
+Which optimization and implementation software methods were the
+most used? (C) How were the results measured? (D) Which author,
+university, publication year and journal were found that compose the
+reference research centers? In the seek to answer these questions, the
+article contributes to the theoretical development of DSBO, gathering
+the work of researches in this specific area for a new methodological
+classification, expanding the already existing. Besides the creation of a
+classification, new perspectives are related to the creation, development, and solution of a DSBO project suggesting the already exciting
+methods to be considered and analyzed.
+The remainder of the paper is organized as follows: Section 2 literature review on DSBO, Section 3 research method, Section 4 findings
+and discussion, and last Section 5 conclusions and findings.
+2. Literature review
+2.1. Discrete simulation-based optimization: definition of terms used and
+research area
+The term “simulation” refers to a collection of technics to mimic a
+specific behavior from a real or ideal system, using resources (time and
+knowledge) to answer questions made for the studied structure when
+real experiments are too costly or impossible to be performed.
+Simulation can be used in a variety of fields, industries, and applications, that mainly consists of data collection, analysis with the help of
+computers (Banks, Nelson, Carson, & Nicol, 2010; Kelton, Sadowski, &
+Swets, 2010; Law & Kelton, 1991).
+It is recommended to use simulation when the studied system involves variables with stochastic behavior, none or minimal correlation
+and independent and identically distributed (IID) properties (Bianchi,
+Dorigo, Gambardella, & Gutjahr, 2009). If one of those characteristics
+are not met, the data should be treated, or the decision maker should
+consider the use of other types of modeling and optimization techniques, such as linear and non-linear optimization.
+Another simulation characteristic refers to how the entities change
+during time. If it only changes at specific points in the system, it is
+considered discrete (e.g., operations such as cut, weld, paint), in opposition to variables that change continuously during a period of time
+(Rosser, Sommerfeld, & Tincher, 1991). Other types of modeling and
+simulation are based on agents’ behaviors. In these cases, the agents are
+individuals with their behavior and rules, where the modeler can specify the condition when the rules will be executed. Agents are considered like decision makers with some level of learning and adaptation
+(Collier & North, 2012). For the present SLR, only studies that involve
+discrete-event entities behavior were analyzed, since most of the Industrial Engineering problems evolve such kind of problem where entities are transported and modified in a specific way in defined processes.
+Simulation projects often aim to answer questions related to the
+optimization of specific characteristics that represent “what if” scenarios to the proposed system. Optimization is defined as the minimization or maximization or both related to a one or multi-objective
+function that summarizes, in a mathematical form, the questions made
+for the system. If so, different combinations of alternatives are considered viable if it satisfies all the restrictions of the problem, or unviable if at least one restriction is not satisfied. The alternative that has
+the best value for the objective function is considered optimal. If the
+simulation has sufficient data to represent the analyzed system, the
+best-simulated solution can be inferred as optimal, and have good
+chances to be implemented in a real system, performing the goal to be
+an excellent tool to help decision making (Taha, 2007).
+To find the optimal solution, a search space made from the combination of the possible values from the variables is evaluated. The size
+of this search space can be a problem regarding the resources necessary
+to perform a full search covering all the possible solutions, to find the
+best one. The resources, in this case, are commonly related to the
+computational power available to perform all the possible solutions that
+represent a quantity of time that the decision-making person could not
+have. Those types of problem are considered NP-hard (He, Liang, Liu, &
+Hui, 2017; Herrmann, 2013; Nawara & Hassanein, 2013). According to
+Banks (1998), Chen, Jia, and Lee (2013), Xu, Huang, Chen, and Lee
+(2015) a simulation optimization problem can be formulated as stated
+in Eq. (1).
+max ( ) [ ( ; )], J x E L x w = x X (1)
+where x is an x-dimensional vector with each position representing a
+problem variable from the
+X
+matrix of restrictions made from the
+possible values of x. As
+J
+cannot be calculated directly, it is an expected
+function from the vector x with a random function w that gives the
+stochasticity (uncertainty) to the system at each complete run. An estimator for the expected value can be obtained by the sample mean.
+=
+J x
+N ¯( ) L x w 1 ( ; )
+j
+N
+j
+1 (2)
+Using the strong law of large numbers and the central limit theorem
+(Fu, 2002), Eq. (2) is a good estimator for the expected value of
+L x w ( ; )
+with the decrease of sample standard deviation when
+N
+. As a
+result, the better solution is a consequence of a large number of simulation replications that, depending on the size of the system and the
+search space, demand a computer processing power and time that can
+be prohibitive.
+The overall optimization techniques are developed to find a good
+solution, in a reasonable quantity of time, that can pass through viable
+or unviable solutions in the search space depending on the method. The
+“strength” of the algorithm is measured according to the ability to scape
+local optimums and find a good solution that can be very close to the
+global optimal solution, in a way that the relation of spent time and
+quality of solution satisfy the expectations of the decision maker.
+To solve the problems bounded by the definition of Eq. (2), many
+authors wrote about the subject, such as Banks (1998), Chen, Jia, and
+Lee (2013), Dellino and Meloni (2015), Fu (2015) Mujica Mota & Flores
+De La Mota (2017), and Pawlewski and Greenwood (2014), discussing
+several optimization methods, e.g., heuristics, metaheuristics, gradientbased, surrogate models, and others, applied to discrete event simulation.
+Both simulation and optimization can be applied in Industrial
+Engineering (IE), an area that, according to Maynard & Hodson (2004),
+is concerned to problems related with the production of goods and
+services, evaluating the effects of design, installation, and improvement
+of systems that integrate people, materials, and information. Salvendy
+(2001) states that these problems are associated with technology, performance improvement management, management, planning, design,
+and control and methods for decision-making. This paper considered
+studies that applied discrete event simulation and optimization (i.e.,
+DSBO studies) to problems that involve the production itself, on the
+shop-floor or the related production areas of goods and services, being
+considered a tool to help the decision making on the Industry 4.0 era
+(Xu et al., 2016), which demand tools capable of dealing with a large
+amount of data to transform on information for real-time process control.
+W. Trigueiro de Sousa Junior et al. Computers & Industrial Engineering 128 (2019) 526–540
+527
+2.2. Literature review on DSBO and correlated themes
+During the research, 11 Literature Reviews were found with correlated subjects to DSBO, but none comprises a wide range of successfully
+adopted methods that should be considered at the beginning of DSBO
+on IE projects. This makes this paper, with the use of SLR and CIMO
+(explained in Section 3.2.1), a scientific contribution for the area.
+The earliest LR considered was produced in 1994, presenting multiple-comparison procedures and ranking-and-selection procedures for
+discrete, and gradient-based methods, likelihood ratio method, and
+frequency domain experimentation for continuous problems, applied on
+(s, S) inventory system and the GI/G/1 queue problems (Fu, 1994a).
+Three years later an LR identified six categories and 12 optimization
+methods, but it did not associate them with the IE problem type (Carson
+& Maria, 1997). The next LR was in 2004 treating only the problems
+related to staff scheduling and rostering (Ernst, Jiang, Krishnamoorthy,
+& Sier, 2004). In the year 2009, a survey was conducted based only on
+stochastic combinatorial optimization metaheuristics (Bianchi et al.,
+2009).
+In 2010 an LR was developed considering only simulation applications, in business and manufacturing, and without considering the
+origin of the research (Jahangirian, Eldabi, Naseer, Stergioulas, &
+Young, 2010). For 2013, two LRs were conducted with the first considering the state of the art in Parallel Discrete-Event Simulation (PDES)
+and the second related nine methods (for continuous and discrete
+variables) describing the problem of budget allocation (Jafer, Liu, &
+Wainer, 2013; Long-Fei & Le-Yuan, 2013). In the next year, an LR
+considering the aspects to simulation manufacturing systems design,
+operations and language/package development from 2002 to 2013,
+with the present paper adding the hardware issue for the aforementioned LR screen method (Negahban & Smith, 2014). The subsequent
+year other three LR were performed. The first was based in 6 categories:
+ranking and selection, black-box search, meta-model based, gradientbased methods, sample path, stochastic constraints and multi-objective,
+explaining each category, with four random examples in total (Xu et al.,
+2015). The second studied the DSBO applied to the maintenance problem (Alrabghi & Tiwari, 2015). The third discussed some issues related
+to the use of DSBO in transportation (Bierlaire, 2015). Only one paper
+was found (Oliveira, Lima, & Montevechi, 2016) that used the SLR
+methodology relating simulation with supply chain, but not specifically
+the use of optimization techniques.
+Another six articles used Reviews (R) for correlated DSBO applications, in a more specific way. In 1994 a paper evaluated discrete and
+continuous variables optimization methods applied to two examples
+(Fu, 1994b). In 2009 a study reviewed low-order polynomial regression
+metamodeling (Kleijnen, 2009). In 2013 two papers made reviews on
+the subject. The first cited seven approaches and some cases of application, without specific criteria for selection (Riley, 2013). The second
+referenced simulation-based optimization techniques for maintenance
+operations (Alrabghi & Tiwari, 2013). Next year, an R related some
+methods applied for DSBO to build design optimization (Nguyen,
+Reiter, & Rigo, 2014). In 2015 an R talked about metaheuristics applied
+in simulation and stochastic combinatorial problems, and the differences about these two fields (Juan, Faulin, Grasman, Rabe, & Figueira,
+2015). The last R was developed in 2017 developed and analyzed
+Kriging metamodeling in simulation, with no specific application
+(Kleijnen, 2017). All the aforementioned LR and R composed the base
+to create the method for an SLR applied to a theme (DSBO) that is
+studied over the last 25 years.
+3. Research method
+3.1. The chose for the SLR methodology
+According to Torraco (2005), a literature review (LR) is a way to the
+researcher demonstrate knowledge about a particular field of study,
+concerning about vocabulary, theories, key variables, methods, and
+history. As a result, the LR can help to avoid problems in all the
+methodology steps such as problem definition, method selection, data
+collection, and analysis, which will lead to research conclusions with
+less probability to have faults or inquired to be misunderstanding how
+they were obtained.
+As stated by Denyer and Tranfield (2009) the Systematic Literature
+Review (SLR) should not be interpreted as a LR, but a research project
+that at its core use the literature to respond questions, in a way that all
+the steps are well defined and can be reproduced with minimal bias,
+generating a close result to the original.
+According to Centre for Reviews and Dissemination (2009) health
+care decisions should be taken with the use of the latest research information related to the best modern practices with the help of a
+methodology that can unite all the sparse information that exist, that’s a
+reason for a large number of SLR presented for this scientific area.
+Discussing a parallel, the same reasons can be considered to the use of
+SLR in Industrial Engineering (IE), with the benefit that, in general, IE
+researches do not suffer from the problems related in Hammersley
+(2001); Learmont & Harding (2006) and Morrell (2008) about the exact
+intrinsic nature of this science field, that is benefited by SLR characteristics to identify, to evaluate, and to summarize the collected data.
+Other modern methodologies such as data mining and machine
+learning can be performed on a scientific database to search for specific
+works. The automatic search for words alone demands an initial specific
+knowledge of the desired terms. On a diverse and scattered bibliography with themes that progress during the time, each author uses
+different ways to present methodology and keywords. The manual
+search for the present study was chosen, instead of an automatic one,
+since it provides direct insights on other issues not defined on the start
+of the research, which contributes with the development of the research
+and trends for future works.
+3.2. Application of SLR methodology
+Booth, Papaioannou, and Sutton (2012) refer that the word “systematic” implies that the SLR should be performed with the following
+characteristics: explicit, transparent, methodical, objective, standardized, structured and reproducible. For this reason, the definition of the
+review steps should be done carefully. This paper adopts the steps
+presented in Oliveira et al. (2016), which are planning, searching/
+screening, analysis/synthesis, and the presentation of findings.
+3.2.1. Planning
+In the first phase, the goal was to perform a better understanding of
+the core issues related to the research itself. An exploratory search was
+performed on the Web of Science and Scopus databases. After that, this
+phase continued with discussions and meetings with the subject of
+DSBO methods. Three professors with experience in DSBO practice and
+theory, Ph.D. and M.Sc. students that research on this same field participated in these events. The meetings defined the search for articles
+and conference papers using the terms “Discrete Event Simulation” with
+Boolean logic “AND” with the terms: “Optimization”; “DEA”;
+“Metaheuristic”; “Genetic”; “Tabu”; “Design of experiments”;
+“Response surface”; “Metamodel”; “Parallel”.
+Fig. 1 represents the early findings for the exploratory screening on
+the selected databases, especially regarding the studies of Franceschini,
+Maisano, and Mastrogiacomo (2014); Jahangirian et al. (2010). It describes four primary aspects that researchers or practitioners should
+consider for DSBO projects. The design was thought to be both way and
+iterative, where the researcher or practitioner can start from the desired
+problem, choose the best DSBO method that he/her know it. Then, the
+software and the hardware are chosen according to the resources
+available. The analysis can be both way and iterative because, in the
+early stage of the DSBO project, the optimization method selection is
+conditioned to the resources available regarding software license,
+W. Trigueiro de Sousa Junior et al. Computers & Industrial Engineering 128 (2019) 526–540
+528
+computer power, and necessary knowledge, demanding time and
+money for the acquisition and development.
+The idea for the present paper emerged from the observed lack of
+research that joins IE problems and DSBO in a wide range. It can help at
+the initial step for such type of project, considering the state of the art in
+terms of DSBO methodologies. The objectives of this research consist of:
+(a) Develop an extensive systematic literature review on DSBO applications on IE;
+(b) Identify and extract the methodologies found in these studies;
+(c) Analyze and summarize the methodologies found;
+(d) Discuss the assumptions according to the results.
+To accomplish these objectives, Review Questions (RQ) were formulated to help in the extraction of valid data from the articles. The
+Centre for Reviews and Dissemination (2009) define a frame to shape
+the RQ regarding population, interventions, comparators, outcomes,
+and if the research demands, study design. This method is known as
+PICO, PICOS or PICOC (Population, Intervention, Comparison, Outcomes, Context) acronym, generally used as SLR in medical research.
+Other frameworks for medicine were found in Booth, Papaioannou, and
+Sutton (2012) such as SPIDER (Sample, Phenomenon of interest, Design, Evaluation, Research type) (Methley, Campbell, Chew-Graham,
+McNally, & Cheraghi-Sohi, 2014). According to Denyer, Tranfield, and
+van Aken (2008), the data for organization and management studies
+(including IE) is fragmented and need a specific framework. In that
+context, the CIMO-logic is proposed to involve the problem Context that
+needs a specific Intervention and use a Mechanism to generate Outcomes. Other studies (e.g., Costa, Soares, & De Sousa, 2016; Krause &
+Schutte, 2016; Pilbeam, Alvarez, & Wilson, 2012; Rajwani & Liedong,
+2015; Tanskanen et al., 2017) used the CIMO-logic to express the research questions. For the purpose of the present paper, the RQ used
+were defined by the CIMO-logic question that is divided into four elements:
+• Context: Which real or theoretical Industrial Engineering problems…
+• Intervention: …use an optimization algorithm…
+• Mechanism: …combined with discrete event simulation…
+• Outcomes: …to find the best solution in terms of quality defined in
+the prior objectives and project resources.
+The Research Questions (RQs) were defined in order to describe
+characteristics of each of the dimensions explored by the CIMO-logic,
+with the “Mechanism” of discrete event simulation been a prerequisite:
+• RQ1: Which are the main problems studied, related to the area of
+Industrial Engineering (Context)?
+• RQ2: Which optimization methods and implementation software
+were the most used (Intervention)?
+• RQ3: How the results were measured (Outcomes)?
+• RQ4: Which author, university, publication year, and journal were
+found that compose the reference research centers (Context)?
+In order to answer the RQs, Fig. 2 summarizes the data collected in
+the papers to couple with the objectives, forming the pillars for the
+research.
+Fig. 2 illustrates the three areas that were considered to the data
+extraction from the articles. The first category is the nature of the research which define the problem category, the industrial sector and if
+the project is based on the solution of a real problem or with data extracted from the literature. The second category represents the adopted
+methods to perform the DSBO, comprising the optimization method,
+the software used, and the results measurement. The last category
+considers the available origin information, i.e., author's name, affiliation (university or company), country of origin, and journal data (name
+and publication year).
+3.2.2. Searching/screening
+To avoid omitting pertinent citations (Franceschini et al., 2014), the
+following 18 databases were selected with their own academic search
+engines: ACM Digital Library; CiteSeerX; dblp Computer Science Bibliography; Directory of Open Access Journals (DOAJ); Emerald Insight;
+Google Scholar; IEEE Xplore; Microsoft Academic Search; Portal Capes;
+Research Gate; Sage Journals; Scielo; Science Direct; Scopus; Semantic
+Scholar; Springer Link; Web of Science, and Wiley Online Library. The
+databases were consulted at the same alphabetic order presented.
+After the discussion for the exploratory search, the keywords
+“Discrete Event Simulation” was selected with boolean logic (AND)
+with: “Optimization”, “Metaheuristic”; “Genetic”; “VNS”; “GRASP”;
+“Tabu”; “Particle swarm”; “Ant colony”; “Design of experiments”;
+“Response surface”; “Factoria”l; “Metamodel”; “Model reduction”;
+“Parallel”; and “GPU”, performing 15 searches for each of the 18 presented academic search engines, generating a total of 270 searches. The
+search engine results are sorted by the criteria of relevance, meaning
+that the result list presents at the first positions articles with all the
+defined terms, and so on.
+The study selection was conducted with an initial screening of titles
+and abstracts regarding two requirements. First, if the article or conference paper (i) seems to be relevant; (ii) uses the English language;
+(iii) was peer-reviewed; (iv) was published in the last 25 years; and (v)
+has the full paper available. Second, a relevance criterion, i.e., the
+screening’s stop criterion for each of the selected keyword combination
+(more than 200 K in estimative). These screenings were stopped when
+the position of the last selected article (according to the first requirement) was at least 20 positions above the current article under
+screening. Table 1 summarizes the number of downloaded articles.
+Table 1 presents the distribution of the total 663 (271 + 392, explained on Fig. 3) articles downloaded from 12 databases/search engines proposed, showing the result ranking the most probable databases
+to find articles and conference papers related to DSBO. The result
+presented is partly influenced by the fact that the consulting on the
+databases was made on the same order presented in Table 1 and the
+repeated names were discharged, what means that the last names
+cannot be considered worse, for example, the Scopus can be better than
+ACM because had 17 different than the first. The databases CiteSeerX,
+Google Scholar, Microsoft Academic Search, Portal Capes, Research
+Gate, and Wiley Online Library does not return significant results to the
+proposed research keyword combinations. Fig. 3 lists the process for the
+selected articles.
+Fig. 3 resumes the process of search and screening with the proposed keyword combination and selected databases. After using the
+Fig. 1. Different initial levels to consider on DSBO
+project.
+W. Trigueiro de Sousa Junior et al. Computers & Industrial Engineering 128 (2019) 526–540
+529
+stop criteria and the screening, 793 articles were downloaded and 522
+were excluded for one or more of the following reasons: 62 (15.86%)
+were theoretical studies, 202 (51.66%) do not present an IE problem,
+77 (19.69%) do not adopt discrete event simulation or use agent-based
+approaches, 86 (21.99%) do not use a valid optimization method, 42
+(10.74%) use only deterministic variables, and two (0.51%) were not
+written in the English language. Moreover, 130 duplicates were excluded. To identify these repeated files, the 793 downloaded articles
+were put together in the same folder where each file was labeled with
+the article’s name and arranged in alphabetical order. This approach
+was useful as each searched database has its way to label the files,
+making difficult to identify the repeated ones. When two consecutive
+files had the same name and archive size, they were evaluated for
+possible duplicity.
+Theoretical studies, excluded from the review, comprised articles
+that only discuss a specific part of the simulation process (e.g.,
+Adegoke, Togo, & Traore, 2013; Das, 2000; Thomas, Howes, & Luk,
+2009) and do not present a case study or action research. Articles that
+did not present an IE problem comprised studies in areas such as
+software development, biological systems, and urban traffic (e.g.
+Montagna, Viroli, & Roli, 2015; Muta, Raymond, Hara, & Morimura,
+2015), but this depends on the application for such areas, for example,
+maintenance area that can perform preventive, predictive, and corrective studies in which an Industrial Engineer will have little knowledge
+to work, but related to maintenance workforce timetabling, an Industrial Engineer can perform a DSBO with collected data from the real
+case.
+3.2.3. Analysis/synthesis
+The synthesis of the findings was performed using a Microsoft
+Excel® spreadsheet to compile all the information extracted from the
+271 articles. In order to answer the RQs, each selected article was
+evaluated in the concern of 10 items: problem; case study; optimization
+method, implementation software; results measurement; author’s name;
+publication’s year; publication’s name; author’s affiliation and nationality, resuming the proposition illustrated in Fig. 2. After the data extraction, similar terms were identified and consolidated for a better
+synthesis, for example, metamodel and metamodeling, or design of
+experiments and factorial design.
+After the synthesis of data according to the pillars presented in
+Fig. 2, Excel® was used for descriptive statistics to determine the percentage of appearance for each type of problem, method, and research
+origin. This data synthesis was the base for the SLR analysis that consisted of presenting the findings and best practices for the development
+of DSBO on IE projects.
+3.2.4. Presentation (Reporting)
+The 271 articles were divided into two categories: journals and
+proceedings of international conferences, comprising respectively 150
+and 121 documents. To present the findings after the analysis and
+synthesis process, Tables 2–5 and Figs. 4 and 5 summarize the data. The
+results were presented on a sequence to answer the RQs, developing a
+discussion by the authors to present the state-of-the-art techniques
+applied to DSBO projects on IE problems, showing the past and present
+practices and bringing up possibilities to the future of DSBO on IE.
+Pillars of the Research / Data gathered for DSBO
+Nature of the research Adopted method Origin of the research
+Author’s name
+Author’s nationality
+Author’s filiation
+Journal’s name
+Journal’s year
+Adopted software
+Results measurement
+Optimization method
+Industrial sector
+Real/Theoretical
+Defined problem
+Fig. 2. Pillar of the research and the data collected in the papers.
+Table 1
+Number of articles downloaded from the databases.
+Database/search engines Downloaded
+ACM Digital Library 168
+Web of Science 130
+IEEE Xplore 125
+Sage Journals 73
+dblp Computer Science Bibliography 39
+Semantic Scholar 31
+Emerald Insight 28
+Directory of Open Access Journals 21
+Science Direct 18
+Scopus 17
+Scielo 9
+Springer Link 4
+Total 663
+Fig. 3. The search/screening process.
+W. Trigueiro de Sousa Junior et al. Computers & Industrial Engineering 128 (2019) 526–540
+530
+4. Findings and discussion
+In order to present the findings to answer the research questions, the
+data gathered for the pillars of the research are presented in this section
+to generate the basis for the discussion.
+4.1. Nature of the research:
+This section presents the findings related to the first pillar, i.e., the
+“nature of the research”, which is related to the information of the
+problem itself, the industrial sector and the definition if the project is
+based on the solution of a real problem or with data extracted from the
+literature. Table 2 summarizes the findings to answer the RQ1.
+In problem type, five categories were generated according to the
+significant number of articles related (at least 20): industrial process,
+inventory control, scheduling, logistics, and not specified. Industrial
+processes comprise problems that occur mainly on the shop floor of an
+industry, where part of the value is generated. Such problems are related to parameter production definition (e.g., Al-Aomar & Al-Okaily,
+2006; Can & Heavey, 2011; Choi, Seo, & Kim, 2014; Creighton &
+Nahavandi, 2003), buffer (e.g., Amiri & Mohtashami, 2012; Costa,
+Alfieri, Matta, & Fichera, 2015), inspection (e.g., Van Volsem, Dullaert,
+& Van Landeghem, 2007), and resource allocation (e.g., Lucidi,
+Maurici, Paulon, Rinaldi, & Roma, 2016). The sum of the papers is
+higher than the original quantity (275 > 270) because articles presented more than one problem related to IE (e.g., Can & Heavey, 2012).
+The other types of problems are related to production support systems,
+mainly with respect to inventory control (e.g. Kilmer, Smith, & Shuman,
+1999) for stock level and replenishment; scheduling associated to programming job shop and dispatching (e.g. Costa, 2015; Jia, Bard,
+Chacon, & Stuber, 2015; Martins, Fuchs, Pando, Lüders, & Delgado,
+2013; Naderi, Khalili, & Tavakkoli-Moghaddam, 2009; Neto &
+Goncalves, 2010; Saadouli, Jerbi, Dammak, Masmoudi, & Bouaziz,
+2015); logistics (e.g. Baril, Gascon, & Cartier, 2014; Zhen, Wang, Hu, &
+Chang, 2014) for allocation, location, layout, supply, and routing problems; or not specified studies (e.g. Kilmer et al., 1999) which cannot be
+determined in one of the previews categories.
+The four primary problems namely scheduling, industrial process,
+logistics, and inventory control represent 94.2% of the total problems.
+This is a sign that these areas have IID aleatory variables that constitute
+a search space which demand a sophisticated methodology, such as
+DSBO, to help in the decision process to find the best solution. The
+Table 2
+Type and economic production sector of the problems.
+Total and % of the total
+Problem type Papers Proceedings Total Cum. %
+Scheduling 58–21.1% 42–15.3% 100–36.4% 36.4
+Industrial Process 54–19.6% 33–12.0% 87–31.6% 68.0
+Logistics 24–08.7% 22–08.0% 46–16.7% 87.4
+Inventory Control 12–04.4% 14–05.1% 26–09.5% 94.2
+Not Specified 03–01.1% 13–04.7% 16–05.8% 100.0
+275–100%
+Economic sector
+Primary 01–00.4% 01–00.4% 02–00.7% 00.7
+Secondary 89–32.4% 71–25.8% 160–58.2% 58.9
+Tertiary 47–17.1% 36–13.1% 83–30.2% 89.1
+Not Specified 13–04.7% 17–06.2% 30–10.9% 100.0
+275–100%
+Production sector
+Semiconductor 10–03.6% 13–04.7% 23–08.4% 08.4
+Health care 13–04.7% 10–03.6% 23–08.4% 16.8
+Automotive 10–03.6% 08–02.9% 18–06.5% 23.3
+Chemical 04–01.5% 01–00.4% 05–01.8% 25.1
+Others 16–05.8% 13–04.7% 29–10.5% 35.6
+Not specified 97–35.3% 80–29.1% 177–64.4% 100.0
+275–100%
+Data origin
+Real 84–30.5% 66–24.0% 150–54.5% 54.5%
+Theoretical 67–24.4% 58–21.1% 125–45.5% 100%
+275–100%
+Table 3
+DSBO methods used.
+Total and % of the total
+Optimization method Papers Proceedings Total Cum. %
+Heuristics
+Local Search 7–11.7% 3–05.0% 10–16.7% 18.2%
+Random Search 5–08.3% 2–03.3% 7–11.7% 30.9%
+Hill Climbing 3–05.0% 2–03.3% 5–08.3% 40.0%
+Others 24–40.0% 14–23.3% 38–63.3% 100%
+39–65.0% 21–35.0% 60–100%
+Metaheuristics
+Evolutionary 60–20.7% 65–22.4% 125–43.1% 43.1%
+Simulated Annealing 11–03.8% 12–04.1% 23–07.9% 51.0%
+Tabu Search 14–04.8% 6–02.1% 20–06.9% 57.9%
+VNS 5–01.7% 1–00.3% 6–02.1% 60.0%
+Others 87–30.0% 29–10.0% 116–40.0% 100%
+177–61.0% 113–39.0% 290–100.0%
+Surrogate model
+DOE 18–16.4% 16–14.5% 34–30.9% 30.9%
+Response surface 10–09.1% 9–08.2% 19–17.3% 48.2%
+ANN 9–08.2% 3–02.7% 12–10.9% 59.1%
+Kriging 7–06.4% 2–01.8% 9–08.2% 67.3%
+DEA 5–04.5% 0–00.0% 5–04.5% 71.8%
+Regression 4–03.6% 1–00.9% 5–04.5% 76.4%
+Others 10–09.1% 16–14.5% 26–23.6% 100.0%
+64–57.3% 42–42.7% 110–100%
+Parallel/distributed
+CPU 6–21.4% 17–60.7% 23–82.1% 82.1%
+GPU 3–10.7% 2–07.1% 5–17.9% 100%
+9–32.1% 18–64.3% 28–100%
+Proprietary 11–52.4% 10–47.6% 21–100% 100%
+Monte Carlo 4–57.1% 3–42.9% 7–100% 100%
+Gradient based 6–75.0% 2–25.0% 8–100% 100%
+Others 21–44.7% 26–55.3% 47–100% 100%
+Table 4
+Software used for DSBO.
+Total and % of the total
+Software Papers Proceedings Total Cum. %
+Arena® 34–07.9% 17–04.0% 51–11.9% 11.9%
+Not specified 29–06.7% 16–08.6% 45–10.5% 22.3%
+Matlab® 29–06.7% 10–02.3% 39–09.1% 31.4%
+C++ 16–03.7% 16–03.7% 32–07.4% 28.4%
+VBA® 16–03.7% 05–01.2% 21–04.9% 38.8%
+Excell® 11–02.6% 12–02.8% 23–05.3% 43.7%
+OptQuest® 9–02.1% 9–02.1% 18–04.2% 49.1%
+Java 6–01.4% 7–01.6% 13–03.0% 53.3%
+IBM CPLEX® 8–01.9% 2–00.5% 10–02.3% 56.6%
+Promodel® 7–01.6% 3–00.7% 10–02.3% 58.6%
+Others 73–17.0% 95–22.1% 168–39.1% 100%
+238–55.3% 192–44.7% 430–100%
+DES/Optimization/Communication
+Programming language 94–21.9% 75–17.4% 169–39.3% 39.3%
+Modeler and optimizer 85–19.8% 70–16.3% 155–36.0% 75.3%
+Commercial DES modeler 59–13.7% 47–10.9% 106–24.7% 100%
+238–55.3% 192–44.7% 430–100%
+Result measurement
+Min Cost 96–22.8% 85–20.2% 181–43.0% 43.0%
+Max throughput 62–14.7% 63–15.0% 125–29.7% 72.7%
+Speedup 24–05.7% 18–04.3% 42–10.0% 82.7%
+Benchmark 14–03.3% 8–01.9% 22–05.2% 87.9%
+Others 30–07.1% 21–05.0% 51–12.1% 100%
+226–53.7% 195–46.3% 421–100%
+W. Trigueiro de Sousa Junior et al. Computers & Industrial Engineering 128 (2019) 526–540
+531
+present SLR does not try to search for other methodologies to evaluate
+such problems but is possible to infer that in these cases DSBO is a
+viable tool to be considered and used. The size of the presented problems was in general composed by few stations and/or buffers (1–5),
+representing only part of the total production systems, showing that
+DSBO was planned to resolve part of a specific problem, and not to
+evaluate the role system. Even this problem size has a search space that
+justifies the use of optimization methods.
+For the economic sector, the four categories were: primary, related
+to the production or exploitation of natural resources; secondary, that is
+responsible for the transformation of natural resources in goods; tertiary, associated to the provision of services; and not specified, when
+the object of study cannot be detailed in one of the other categories. As
+expected, the same production system can have either a perspective to
+supply the customer with goods and services. In this case, only the
+primary purpose of the problem was considered. In this context, a job
+shop scheduling and supply chain problem related to the automotive
+industry would be associated with the secondary economic sector, if the
+main objective is the production and provision of a good.
+Only two papers were identified in the primary sector
+(Nageshwaraniyer, Son, & Dessureault, 2013a, 2013b), related to a coal
+mine. These studies were performed by the same authors, two from the
+Industrial Engineering and the other one from the Geological Engineering. This may be explained by the fact that DSBO problems are
+mainly studied on specific engineering courses such as Industrial, Mechanical, Electrical, and Computer. Other courses like Agronomy,
+Zootechny and Mining Engineering have a different focus and can be
+Table 5
+Number of publications according to the author's name, affiliation, and nationality.
+TOP 10 Name - Number of publications
+Researcher Papers Proceedings
+1 Jack P.C. Kleijnen − 4 Amos H.C. Ng − 3
+2 A. Azadeh − 3 Hongwei Ding − 3
+3 B. Naderi − 3 Lars Mönch − 3
+4 Berna Dengiz − 3 Lyes Benyoucef − 3
+5 Christian Almeder − 3 Torsten Hildebrandt − 3
+6 Feng Yang − 3 Xiaolan Xie − 3
+7 Richard F. Hartl − 3 Alexander Pacholik − 2
+8 Wim C.M. van Beers − 3 Alexandre Ferreira de Pinho − 2
+9 Wout Dullaert − 3 Andrés Muñoz-Villamizar − 2
+10 A. Costa − 2 Anna Persson − 2
+Total − 150 Total − 121
+Affiliation
+1 Amirkabir University of
+Technology − 7
+Dresden University of
+Technology − 4
+2 University of Tehran − 6 Purdue University − 4
+3 University of Vienna − 5 University of Paderborn − 4
+4 Louisiana State University − 4 University of Skövde − 4
+5 Tilburg University − 4 Ilmenau Technical University −
+3
+6 University of Antwerp − 4 Nanyang Technological
+University − 3
+7 Baskent University − 3 Northeastern University − 3
+8 Ghent University − 3 Tongji University − 3
+9 Islamic Azad University − 3 University of Hagen − 3
+10 Shanghai Jiao Tong University
+− 3
+Durham University − 2
+Total − 150 Total − 121
+Nationality
+1 United States − 33 United States − 32
+2 Iran − 18 Germany − 22
+3 China − 14 China − 17
+4 Germany- 9 France − 7
+5 Brazil − 8 UK − 7
+6 Belgium − 6 Italy − 5
+7 Canada − 6 Sweden − 5
+8 United Kingdom − 6 Colombia − 4
+9 France − 5 Brazil − 4
+10 Italy − 5 Ireland − 3
+Total − 150 Total − 121
+Fig. 4. DSBO on IE summary.
+USA
+24%
+Germany
+11%
+China
+Canada 11%
+8%
+Brazil
+7%
+Iran
+7%
+UK
+5%
+France
+4%
+Italy
+4%
+Ireland
+2%
+Other
+16%
+Fig. 5. Articles and proceedings according to the top 10 countries for DSBO.
+W. Trigueiro de Sousa Junior et al. Computers & Industrial Engineering 128 (2019) 526–540
+532
+dependent on the knowledge from the four courses presented before.
+This suggests that the primary sector can be explored by future studies
+with the collaboration between the presented courses. The secondary
+and tertiary sector comprised most of the studies, 58.9%, and 30.2%,
+respectively. This unbalance between the secondary and tertiary can be
+an evidence that the production of goods is more suitable to be modeled
+by DES methods, due to the fact that the production of a service is more
+dependent to the iteration between customer and provider, that have
+human and cultural characteristics that are difficult to be modeled by
+DES and can be a field to be explored by agent-based simulation
+methodology (Dorigatti, Guarnaschelli, Chiotti, & Salomone, 2016).
+The third aspect presented by Table 2 is the production sector.
+Problems related with the semiconductor, healthcare, automotive, and
+chemical industries represented 25.1% of the total. These industries are
+related to the secondary and tertiary economic sectors and commonly
+produce goods and services with a high level of aggregate value,
+compared to the primary sector industries. The category others refer to
+a sparse variety of industries that represent 10.5% of the total, and for
+64.4% of the articles, it was not possible to specify the production
+sector. The fact that the article does not specify the related production
+sector may be explained by the frequent discretion and confidentiality
+adopted to hide the company problem or strategic information. In this
+sense, it is recommended that future works specify the object that
+generated the problem, helping practitioners and researchers to find
+already implemented solutions for similar problems, and to choose
+suitable methods. This issue was seen both on journal and proceeding
+papers.
+The last information presented in Table 2 is the origin of the data
+used on the examples presented in the articles. Theoretical articles
+comprise papers that used data from other studies, mainly not developed by the same authors, or used classical problems presented in books
+or specialized literature. In this matter, it is shown a relative balance
+between the number of publications in both directions, on paper and
+proceedings. This may indicate that the development of DSBO has been
+made both on the theoretical and practical ways.
+According to the data presented in Table 2 and the corresponding
+discussion, it is possible to answer the RQ1 (“which are the main problems studied, related to the area of Industrial Engineering?”): the industrial sectors responsible for the productions of goods and services
+with high aggregated value respond for the projects that most invested
+in modeling and searching for the optimized solution of the presented
+problems, mainly due to the significant costs and benefits related to
+scheduling, industrial process, logistics, and inventory control processes.
+4.2. Adopted method
+In order to search a solution space, looking for the best feasible
+solution, a variety of optimization methods can be applied to a DES
+problem. Table 3 summarizes the methods found to optimize the problems presented in Section 4.1, and adopted by at least five articles.
+Frequently, articles used more than one optimization method in the
+same article, justifying the total of 571 methods and implementations.
+Another factor is that one method/article can use a mix of two different
+modeling types such as integer or binary programming (e.g., Saremi,
+Jula, Elmekkawy, & Wang, 2013). In those cases, two methods were
+considered.
+According to Table 3, 40% of the used heuristics are related to
+Local, Random and Hill Climbing search methods, and the remaining
+60% are related to specific algorithms that do not fit on the first 3 ones,
+for example multi-start (Lamiri, Grimaud, & Xie, 2009), or do not describe the adopted heuristic. This fact is partially explained by the
+nature of the heuristic search method that explores a specific problem
+characteristic. Although it is possible to use a generic method, e.g., the
+Hill Climb (Raska & Ulrych, 2015), the application of the heuristics
+requires adapting the search algorithm for the specific characteristic of
+the studied problem.
+Related to the metaheuristics, 43.1% are derived from evolutionary
+algorithms with different denominations, for example, differential
+evolution, chaotic differential evolution, genetic algorithm, evolutionary algorithm, and NSGA II. These are mainly population search
+methods with some modification of the genetic algorithm concepts for
+the individual, gene, population, crossover, etc. The sum of the second,
+third and fourth most used metaheuristics (simulated annealing, tabu,
+and Variable Neighborhood Search – VNS) represent 16.9% of the total,
+compared to the 43.1% of the evolutionary. From all the 554 DSBO
+methods applied, the 290 metaheuristics represent 52.3%, and the 125
+evolutionary represent 22.6%. The line “other” represents 116 methods
+(40.0% of the metaheuristics) combining methods such as artificial
+immune algorithm, scatter search, GRASP, particle swarm, and ant
+colony.
+The surrogate model represents the second most used DSBO
+method, corresponding to 110 methods (19.9% of the total). The most
+used surrogate method was the Design of Experiments (DOE) (30.9% of
+the surrogate methods) followed by response surface (17.3%). The DOE
+method itself provides, in general, a non-linear regression that cannot
+provide a good solution alone, but together with other optimization
+methods such response surface. By this means, all the surrogate
+methods use in some phase a metamodel to be optimized, and in some
+cases, the articles make explicit or not the use of them. The line DOE
+refers to all DOE methods found such as hypercube, full factorial,
+Taguchi, robust design, and LHD. The regression is related to more
+specific methods, for example, time-series, and the Kriging methods
+comprise, for example, kriging metamodeling, detrended kriging, and
+studentized.
+For DSBO, the standard framework presented on the papers is to use
+a computer that uses a single instruction sequential algorithm in the
+form of proprietary software or algorithm to generate the DES model
+and evaluate the search space. On 28 studies (4.8% of the total), the
+implementation of specific problems used single machines and parallel
+instructions or multiple machines with distributed instructions. In that
+way, two types of parallelism were found, related to the use of only CPU
+(Central Processing Unit) on single or distributed machines or hybrid
+algorithms that use both the CPU and GPU (Graphics Processing Unit)
+to parallelize the processing of some instruction on the simulation.
+From the 28 original articles, 23 (82.1%) used the parallelization with
+the CPU, and five (17.9%) used the GPU together with the CPU, with
+the earliest publication in 2010 (Park & Fishwick, 2010), which may
+indicate this as a trending topic for DSBO. The parallelization of the
+simulation alone does not characterize as an optimization method. For
+that, it is possible to combine other methods (e.g., heuristics and metaheuristics) to search for a good solution on a viable period of time
+(Costa et al., 2015; Mokhtari & Salmasnia, 2015; Sailer et al., 2013;
+Uhlig & Rose, 2011).
+The fifth criteria refer to the use of proprietary optimization programs, for example, OptQuest® and SimRunner®. The use of proprietary
+optimization software, by the academic point of view, has limitations
+that compromise the development and test of new optimization
+methods that can present contributions to the refereed literature. This is
+one reason that contributed to the few numbers of papers (21 articles)
+that utilized proprietary optimization software as the main optimization software or a comparison point to relate with other methods.
+The methods related to Monte Carlo and Gradient-Based represent
+2.6% of the total (15 times used). The category “Other” refers to
+methods that were used less than five times (47 times used, 8.2% of the
+total) for example, model reduction, decision tree, cloning, and fuzzy.
+The small number of publications, for the methods presented on the
+Other category, can be a sign for the need of development on these
+optimization areas, according to the success of implementation presented on the articles. Table 4 present the software used and DSBO
+variables considered on the papers.
+According to Table 4, the criterium “software” presents the
+W. Trigueiro de Sousa Junior et al. Computers & Industrial Engineering 128 (2019) 526–540
+533
+programs used for DSBO. The most adopted software is the DES
+modeler Arena®, used on 51 articles (11.9% from the total). The second
+category “Not specified” represent the articles that used computer
+programing language but does not specify which one, cited on 45 articles (10.5%). The third most cited software is the Matlab® that could
+be either used for modeling or optimization, on 39 articles (9.1%). The
+three most used software bring on sight the problem related to all DSBO
+studies that are the generation of the DES computer model and the
+recursive call for the evaluation of the results by an optimization
+method and the parameters to call the new scenarios.
+Thinking on this question, the second criterium “DES/
+Optimization/Communication” separate on three categories according
+to the purpose of the software. The first “Programming language” join
+all the articles that cited, directly or not directly, the used programs or
+computer programing languages that demand programming skills such
+as C++, C#, Java, Cplex, VBA, and CUDA, generating a total of 169
+(39.3%) programs. The second category “Modeler and optimizer” is
+related to the cited software that can be used for both model and optimization, for example, Matlab®, representing 36.0% of the mentioned
+software. The last category refers for the commercial DES software used
+for modeling only, for example, Arena®, ProModel®, Witness®,
+ExtendSim®, AnyLogic®, and Enterprise Dinamics®, referring to 106
+cited software (24.7%).
+Analyzing the two first criteria on Table 4, it is possible to infer that
+there is no consent on the academic and practitioner communities to
+define a framework capable of joining the modeling phase and optimization on DSBO projects. Considering that it is not a common practice to use more than one DES software, it can be said that at least 106
+articles (39.1%) from the 271 analyzed, used a commercial program to
+model the DES, and the majority of the studies in some part used a
+programing language, except the four articles that used commercial
+optimization programs only (e.g., OptQuest® and SimRunner®). The
+scatter variety for possible combinations of DSBO methodologies and
+adopted “test beds” make challenging to replicate the studies or to
+compare the results of an optimization method. For the development of
+a DSBO framework capable of creating a DES model and an open environment to test different search optimizations, the works of Freitag
+and Hildebrandt (2016) and Hildebrandt, Goswami, & Freitag (2015)
+can be cited.
+According to the data presented in Table 4 and the corresponding
+discussion, it is possible to answer the RQ2 (“which optimization and
+implementation software methods were the most used?”: in the computer modeling phase, in almost half the cases, a commercial DES
+software was used, and for the optimization, a programing language
+was adopted, implementing in most of the cases a metaheuristic or
+surrogate model analysis.
+The last category in Table 4 is related to the key performance indicators that constituted the variables for the objective function and the
+constraints that limit the search space, separated on four criteria. The
+benchmark studies are related to theoretical papers with the study case
+that used data from the literature (books and specialized articles) or
+compared the author results with commercial optimization programs,
+responsible for 22 variables, 5.2% of the total studies. The “Maximization of throughput” comprise the objectives related to process
+times that influence on the production parameters, for example, queue
+length, production rate, flow time, wait time, lead time, product
+throughput, and makespan, corresponding for 125 variables (29.7%).
+The “Minimization of cost” relate the variables that have direct influence on production costs such as payroll, revenue, performance, efficiency, net profit, capital, resources, cost savings, WIP, lot size, stock
+level, buffer size, batch size, and customer demand, showing on 181
+variables, 43.0% of the total. “Speedup” is related to the time or
+number of iterations needed to find good solutions, present on 42
+variables, 10.0% of the total. As it is not common to have more than one
+speedup variable on the same articles, it is possible to infer that 42
+works, 15.5% from the 271 papers, used the speed up as a
+measurement. The criteria “Other” is related to statistical measures
+between results such as Mean Absolute Deviation (MAD) and Mean
+Absolute Error (MAE).
+It was observed that the results measurement was made to correlate
+at least one maximization of throughput and one minimization of cost
+criteria on the objectives and/or restrictions. This is expected to the
+formulation of the optimization problem with a finite and defined space
+solution, with inverse related variables that at some point have a region
+that maximizes or minimize the problem response. It was not clear if
+the best result presented was implemented on the real systems nor how
+far it was from the probable global optimum. According to the authors,
+part of this issue can be explained by the fact that the stochastic nature
+of the DES variables makes challenging to guarantee that a good solution found can be used and generate a similar result than the simulated
+one. This mater can be more explored in future works.
+Considering the RQ3 (“how the results were measured?”), it is
+possible to infer that the measurement of the DSBO projects is related to
+the initial purpose which stimulates the development of the same. For a
+general DSBO project on IE, the reasons were related to the need for
+evaluation of multiple scenarios that influence the way the organization
+works and the revenue, when a manual simulation is prohibitive.
+Therefore, the measurement considers how good a solution is and the
+time needed for the optimization get on it.
+According to Chwif, Paul, and Barretto (2006), optimization
+methods and procedures applied to DES can be classified in four categories: gradient-based search, stochastic approximations, response
+surface methodology, and heuristic search methods. This categorization
+was made in 1999 and was not the purpose of the article to make a
+more precise definition of DSBO methods. For Juan et al. (2015), it
+considered the ranking and selection, black-box search methods, metamodel, gradient-based methods, sample path, and stochastic constraints
+and multi-objective. Fig. 4 summarizes the findings related to the
+methodologies applied to DSBO on IE problems, that extend the proposed classification of the aforementioned authors.
+Fig. 4 illustrates the best practices for DSBO on IE found in the
+present study to help on the planning for the steps of a DSBO project on
+IE, based on the 271 articles. The first step is to define the problem and
+the questions that will be answered by the DSBO. If the search space or
+the problem can be limited in a small number of scenarios, intuitive
+methods can be used to determine the number of manual changes
+needed on the simulation model, escaping from the scope of the present
+work, that evaluated problems that have a search space that is prohibitive to be made manually, only with the help of a computer optimization method. After the evaluation of the problem and the need for an
+automatic search method, it is possible to evaluate the software required for the computer model and optimization.
+The second step constitutes to evaluate the available resources of
+time and knowledge to spent on the construction and finding the optimal solution. This constitutes an essential issue because more complex
+simulation systems involving distributed/parallel simulation demand
+more time and equipment investment that are not an assurance to find a
+better solution than sequential programming but increases the probability. The last step is to determine the optimization method(s) applied
+to the simulation model. The selection of the method can be related to
+the findings of previous works or by the implementation and comparison of different methods, according to the available resources. At this
+point, there is not a consensus for what method is more suitable to solve
+the problem, depending on the previous knowledge and experience of
+the simulation team.
+4.3. Origin of the research
+The origin of the research summarizes the data collected on the 271
+articles that refer to the context of the authors and where they produced
+the articles related to DSBO on IE, to help in the answer of RQ 4. It is an
+interest in the present study to find if there is a correlation between the
+W. Trigueiro de Sousa Junior et al. Computers & Industrial Engineering 128 (2019) 526–540
+534
+authors and their different nationality to construct a research community in the area of DSBO. Table 5 present the findings.
+From the total of 789 names found on all articles, 126 appear more
+than one time, and a total of 663 names without repetition were found.
+In the top 10 ranking for the authors, the difference from the most
+productive author to the others is no more than two articles, which
+shows a panorama that the authors do not have a continuous production on the field of DSBO applied to IE problems, with a sparse domain
+of this knowledge. This effect demands a search for different authors in
+order to find more details on a specific optimization methodology or
+related problem.
+The second information on Table 5 is related to the affiliation of the
+authors. With a similar understanding from the previous conclusion, the
+Universities where the studies were conducted does not show a significant number of publications that justify a cluster or reference research center related exclusively to DSBO on IE. The last information on
+Table 5 join the articles according to the author’s country affiliation. At
+this point is possible to make data segregation, according to Fig. 5.
+According to the graphic presented on Fig. 5, is possible to elect the
+USA, Germany, China, Canada, Brazil, Iran, UK, France, Italy, and
+Ireland, the top 10 countries that concentrate the most productive authors, but with the second information conclusion, even in these
+countries, the development of DSBO on IE does not have a reference
+center. Another relevant information extracted from the articles is how
+the optimization projects have been developed, with the collaboration
+of multiple research centers from different universities, private sector
+institutions, and countries. Table 6 present the data collected for the
+author's team.
+The data on Table 6 is related to the different origins and configurations for the author's team of each article. For the first information is
+possible to infer that in 29.2% of the works, members of two or more
+universities were involved. The second information is related to the
+involvement of private and public institution members, different from
+an academic organization, responsible for 19.9%. This issue signs the
+interaction between academics and the industrial sector or governmental institutions. The third data correlates authors that have institutional affiliation in different countries, comprising 12.2% of the
+works. For the remaining of the publications, 38.7%, the authors are
+from the same academic institution.
+The 271 articles were published by 62 journals and 45 conferences.
+Table 7 related the top 10 publication journals and proceedings found
+for DSBO on IE.
+According to Table 7, the first five journals represent 62 published
+articles for DSBO on IE, comprising 41.4% of the publications. The
+other five listed journals published 25 articles (9.2%). Regarding the
+conference proceedings, the Winter Simulation Conference (WSC) alone
+represents 57.0% of all articles, showing that the WSC is a reference for
+the researches and practices on DSBO applied to IE. Fig. 6 illustrates the
+publishing of DSBO on IE along the 25 years considered for the present
+research.
+According to Fig. 6, it is possible to infer that from 1991 to 2008
+there was a trend of growth and mature of the concepts and
+applications of DSBO on IE. This could be partially explained by the
+evolution of the Queue Theory and accessibility to computers and DES
+software. From 2014 to 2016, a decline of 48.5% on the publication is
+noticed, but the reasons are not clear. Moreover, in the same period, the
+agent-based modeling gained strength and researchers and practitioners
+may have concentrated efforts to study hybrid systems or different
+kinds of simulation that can be characterized as an increase or maintenance of the research produced volume in the area of simulation as a
+whole. Nevertheless, a more extended period and more data are necessary for conclusive evidence.
+Finishing with the RQ4 (“which author, university, publication year
+and journal were found that compose the reference research centers?”),
+it is not possible to infer with the information on Tables 5–7 and Fig. 6
+that exist a reference research center which concentrates the publication on DSBO on IE. Furthermore, the collected data indicates a scarce
+orientation to identify a location for research some specific type of
+optimization method and IE problems relating to discrete event simulation.
+4.4. Future research directions on DSBO
+According to the papers and proceedings evaluated in the present
+study, three major optimization techniques showed vast improvement
+and still in development. The first two are related to the use of metaheuristics and machine learning optimization algorithms, and the last
+method with hardware parallelization.
+To search in an NP-hard problem with a scatter solution space,
+metaheuristics can perform well in terms of finding local or near global
+optimum solutions in a reasonable wall clock time. If the discrete event
+simulation is needed, surrogate models (or metamodels) methods can
+be used instead of the real simulation. The metamodels are, in general,
+a mathematical representation that gives a result similar to the real
+simulation, in an amount of time less than the needed to run the simulation. For example, it is possible to cite the use of the Decision Trees
+machine learning method and the metaheuristic Tabu Search for dispatching rules (Shahzad & Mebarki, 2016).
+The idea of machine learning and metaheuristic is found in more
+recent papers, using Artificial Immune Systems and Genetic Algorithm
+in a material handling system (Leung & Lau, 2018). The NSGA-II and
+SPEA2 evolutionary algorithms were used to select optimal Information
+Technology Infrastructure Library (Ruiz, Moreno, Dorronsoro, &
+Rodriguez, 2018), and the use of decomposition-based multi-objective
+differential evolution algorithm (MODE/D) compared against NSGA-II
+for inventory replenishment problem (Avci & Selim, 2018). Integrating
+with the trends on the era of Industry 4.0, machine learning is a tool
+that has been used for a variety of manufacturing prediction issues
+(Diez-Olivan, Del Ser, Galar, & Sierra, 2018).
+The third method is the use of hardware parallelism. Along with
+algorithm development, modern computers have increased their computation power, in particular, the capacity of processing more than one
+instruction at a time with the advent of multi-core processors, in which
+discrete event simulation can be benefited (Jafer et al., 2013). A recent
+research used NSGA-II and parallelism on bridge construction projects
+with the time to find the solution of the problem characteristics (Salimi,
+Mawlana, & Hammad, 2018). Fig. 7 illustrates the progress of the
+publication related to the categories of optimization methods classified
+according to Table 3. In recent years, articles that adopt hardware
+parallelism present more consistent participation in the DSBO studies
+on IE, also indicating a research direction.
+The three cited methods metaheuristics, metamodel using machine
+learning, and parallel processing have in common the need to find good
+solutions in the least amount of available time. This issue reflects the
+crescent need to process a large amount of stochastic data and the
+benefit from the developments on optimization algorithms and hardware parallelization. According to Fig. 7, in the last 25 years, these
+three methods represented 64% of all the produced research on the area
+Table 6
+Different authors origin.
+Total and % of the total
+Filiation of the author Papers Proceedings Total Cum. %
+More than one university 64–23.6% 15–05.5% 79–29.2% 29.2%
+Together with another public
+or private institution
+13–04.8% 41–15.1% 54–19.9% 49.1%
+More than one country for
+authors
+23–08.5% 10–03.7% 33–12.2% 61.3%
+Same origin place for all
+authors
+49–18.1% 56–20.7% 105–38.7% 100%
+150–55.4% 121–44.6% 271–100%
+W. Trigueiro de Sousa Junior et al. Computers & Industrial Engineering 128 (2019) 526–540
+535
+of DSBO applied to IE, and, considering the last five years (2012–2016),
+the methods were used on 68% of the studies. Other related issues for
+future works are the trends for problem types. Fig. 8 relates the topics
+presented in Table 2 for the considered period of time.
+Observing the information on Fig. 8, the problem types are 68%
+related to scheduling and industrial process, composing the majority of
+the studied problems. Evaluating the development through the years,
+the presented problems have a historic mark between the years 2000
+and 2002, beginning an exponential growth. The development can be
+explained by the ease of computer power access generated on these
+years, related to the acquisition and development of computer hardware and programs for simulation. After the year 2000, the use of DSBO
+on IE have a consist increase and can be considered an established
+practice on the problem types presented in Fig. 8.
+The less researched optimization methods and areas, presented in
+Figs. 7 and 8, are not characterized as inapt but with a few numbers of
+studies. The aptitude can be an issue to be evaluated in future studies,
+aiming to determine which methods and areas are best suited to be used
+with DSBO projects on IE. For example, healthcare is a growing study
+area where simulation projects have been developed.
+5. Conclusions and findings
+The purpose of the present study was never to cover all the existing
+articles about the theme, but to analyze a significant sample size to give
+insights about the past and present practices about DSBO on IE, helping
+researchers and practitioners with the presentation of the already existing projects for future ones. Given the proposed SLR structure and
+presented methodology, the coverage of the literature about DSBO on
+IE was considered enough to answer the RQs with a satisfactory understanding of the subject. It is worth the recommendation for future
+researchers and practitioners, especially those who seek to enter a Ph.D.
+program, to understand and adapt the SLR methodology to evaluate
+new topics and trends on the corresponding knowledge, especially
+proven by the present work, on the field of Industrial Engineering.
+Thinking on the seek to answer the RQs, the first conclusion is that
+the problems related to the production of goods and services studied on
+DSBO are related to the optimization of resource mainly related to
+Table 7
+Top 10 publications locations for DSBO on IE.
+Rank Journal Publications % Cum%
+1 European Journal of Operational Research 16 10.7 10.7
+2 Computers & Industrial Engineering 12 8.0 18.7
+3 International Journal of Production Economics 12 8.0 26.7
+4 Simulation: Transactions of the Society for Modeling and Simulation International 12 8.0 34.7
+5 Computers & Operations Research 10 6.7 41.4
+6 Simulation Modeling Practice and Theory 7 4.6 46.0
+7 International Journal of Advanced Manufacturing Technology 6 4.0 50.0
+8 Journal of Manufacturing Systems 6 4.0 54.0
+9 Applied Soft Computing 3 2.0 56.0
+10 Engineering Applications of Artificial Intelligence 3 2.0 58.0
+Others 63 42.0 100.0
+Rank Proceedings
+1 Winter Simulation Conference 69 57.0 57.0
+2 International Conference on Automation Science and Engineering 3 2.5 59.5
+3 Conference on Manufacturing Modeling, Management and Control 2 1.7 61.2
+4 European Conference on Modeling and Simulation 2 1.7 62.8
+5 European Symposium on Computer Aided Process Engineering and 9th International Symposium on Process Systems Engineering 2 1.7 64.5
+6 International Conference on Industrial Engineering and Engineering Management 2 1.7 66.1
+7 International Conference on Service Systems and Service Management 2 1.7 67.8
+8 International ICST Conference on Simulation Tools and Techniques 2 1.7 69.4
+9 SIGSIM-PADS 2 1.7 71.1
+10 World Congress on Intelligent Control and Automation 2 1.7 72.7
+Others 33 27.3 100.0
+1 1 3 3 1
+4 4 6 5 4 2
+8 10 11
+16
+19
+22
+17
+12
+1 2
+2 2 5
+4 6
+7
+5 9
+9
+6
+6
+8
+9
+13
+11
+9
+5
+0
+5
+10
+15
+20
+25
+30
+35
+1991
+1992
+1993
+1994
+1995
+1996
+1997
+1998
+1999
+2000
+2001
+2002
+2003
+2004
+2005
+2006
+2007
+2008
+2009
+2010
+2011
+2012
+2013
+2014
+2015
+2016
+PUBLICATIONS/YEAR
+YEAR
+Papers Procedings
+Fig. 6. Publications of DSBO on IE.
+W. Trigueiro de Sousa Junior et al. Computers & Industrial Engineering 128 (2019) 526–540
+536
+operators, machine and resources, which represent the majority of the
+production costs and are always in the aim of the administrators to be
+changed and optimized. The second conclusion refers to the optimization method and implementation software, which is an area with no
+consensus because the same problem can be solved by more than one
+way, and it was not seen a framework that could be applied to all
+problems without a good prior knowledge of the researcher or practitioner, being one point to be considered on the development of the
+project. For the optimization of resources, the time spent to generate
+the solution and the cost of initial and final obtained solutions were
+compared, and in general, the results are presented as suitable. The last
+conclusion presents the authors and locations where the DSBO on IE
+were developed. There is no cluster or important research center that is
+a reference on this area, but the amount of data shows a sparse use on
+46 countries all over the world with good results.
+Regarding the answer of the RQs, some issues were observed on the
+related works that worth mention to direct future studies:
+• The selected articles do not present the initial resources necessary
+and if they were considered at any moment during the project. It is
+only familiar to talk briefly about the computer hardware and
+software specifications that were used. The DSBO was not considered, in overall, a project in terms for the management of time,
+identification and selection of possible knowledge necessary to
+achieve a goal and the application of other resources, with specific
+results for each project step. That is a literature deficiency that can
+be considered for future works. Even at the papers that show a DES
+methodology, it was common that some part of the project was not
+described and discussed (e.g., verification and validation). In the
+analyzed articles, it was not found the time dedicated to the project
+nor part of it, or the number of people necessary and in which activities they worked;
+• It was common to focus on the optimization methods and a way to
+compare the results. Although this is beneficial information, for
+future researches or practitioners that will read the article, it is
+valuable to indicate why other methods were not considered and the
+mistakes made during this phase. That is a way to avoid the same
+mistakes or to make clearer the science development steps performed;
+• The pulverized register of the works produced on the field of DSBO
+on IE is a sign that this field stays in the interest of many people,
+with few final rules about the best way to treat some problem. Most
+of it as a result from the essence of the DSBO that put together
+problems that always will reflect the new challenges of the industries and the optimization methods that follow and put together
+the discovery on areas such as combinatorial problems and 0
+10
+20
+30
+40
+50
+60
+70
+80
+1991
+1992
+1993
+1994
+1995
+1996
+1997
+1998
+1999
+2000
+2001
+2002
+2003
+2004
+2005
+2006
+2007
+2008
+2009
+2010
+2011
+2012
+2013
+2014
+2015
+2016
+Metaheuristic Surrogate model Response surface Others
+Heuristic Parallel Interger program Gradient based
+Fig. 7. Progress of DSBO methods publication.
+0
+5
+10
+15
+20
+25
+30
+35
+40
+Scheduling Industrial process Logistic Inventory control Not specified
+Fig. 8. Problem types published from 1991 to 2016.
+W. Trigueiro de Sousa Junior et al. Computers & Industrial Engineering 128 (2019) 526–540
+537
+computer technological advances;
+• There is a demand on the DSBO on IE to the development of programs that put together modeling and optimization, in a way that
+the decision agent can test and implement different kinds of optimization. This can be a sign to the development of research projects
+between IE and Information Technology to develop such software to
+be friendly to the final user and speed up DSBO projects with different methods;
+• The studies selected do not present if the best solutions were used or
+not, even in the real study cases, coupling if the best solution generated the simulated advantages proposed and how close they are
+from reality, as a final test to prove that the DSBO was efficient as
+the initial proposal;
+• There are few articles (19.9% of the total cases) where the name of a
+company appears together with the list of authors, showing little
+interaction, related to real cases. That can be a bad sign that companies were not entirely involved during the process of the DSBO
+project, showing that in the future the enterprise could not use and
+improve the DSBO;
+• The comparison of the optimization scenarios is made comparing
+one specific method against each other. That compromise the generalization of results to that specific case. More robust optimization
+framework can be proposed to test and solve a more significant
+number of different problems;
+• On the 271 selected articles, a general summary was not found that
+consider together the aspects for problems on IE, optimization
+methods, and software/ hardware, in the first phase, for the conceptual part of the DSBO project, the think about the resources
+available and needed to develop or to search for already implemented ones, due to the variety of methods and software’s already existed in the market;
+It is known that academic papers tend to present, using the scientific
+method, how a proposed change in the current state of knowledge can
+lead to a significant improvement on the initial analyzed results. The
+ideas presented above do not criticize but try to enrich the discussion in
+a way that industrial organizations and overall interested people have
+more information that can be determinant on the success on the implementation of a DSBO on IE project.
+Acknowledgments
+The authors thank CAPES, CNPq and FAPEMIG for supporting this
+research and the anonymous referees for suggestions that contributed to
+substantial improvements in the paper
